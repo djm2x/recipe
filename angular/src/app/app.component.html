@@ -1,0 +1,27 @@
+<div class="example-container" >
+    <header class="example-toolbar">
+        <app-loader class="topbar"></app-loader>
+        <app-navbar (toggleSideNave)="toggleSideNave($event)" (changeTheme)="changeTheme($event)"></app-navbar>
+    </header>
+    <!-- <app-admin *ngIf="session.userRole()"></app-admin> -->
+    <mat-sidenav-container class="example-sidenav-container">
+        <div #div (click)="snav.toggle()"></div>
+        <mat-sidenav #snav mode="over" [fixedInViewport]="true" fixedTopGap="56" (click)="snav.close()">
+           <app-sidebar></app-sidebar>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <main class="mt-2" style="min-height: calc(100vh - 80px);">
+                <div class="container">
+                    <!-- <button mat-raised-button (click)="sidenav.toggle()">sidenav.toggle()</button> -->
+                    <router-outlet>
+                    </router-outlet>
+                </div>
+            </main>
+
+            <footer>
+                <app-footer></app-footer>
+            </footer>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

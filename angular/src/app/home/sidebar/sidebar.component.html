@@ -1,0 +1,40 @@
+<mat-nav-list style="width: 250px;">
+    <div *ngIf="isSignedIn">
+        <mat-list-item>
+            <app-img-display [img]="userImg" width="32px" height="32px" radius="50%" widthProgressBar="15px"
+                heightProgressBar="3px">
+            </app-img-display>
+            <h3 matLine>{{userName}}</h3>
+            <!-- <p matLine>
+                  <span> {{message.subject}} </span>
+                  <span class="demo-2"> -- {{message.content}} </span>
+                </p> -->
+        </mat-list-item>
+        <mat-list-item  routerLink="/recette/add-recette" routerLinkActive="active">
+            <mat-icon>add</mat-icon>
+            <span>Déposer une recette</span>
+        </mat-list-item>
+        <mat-list-item [routerLink]="['/recette/list-recette', userID]"
+            routerLinkActive="active">
+            <mat-icon>layers</mat-icon>
+            <span>Mes recettes créées</span>
+        </mat-list-item>
+        <mat-list-item [routerLink]="['/recette/carnet',userID]" routerLinkActive="active">
+            <mat-icon>apps</mat-icon>
+            <span>Mon carnet de recettes</span>
+        </mat-list-item>
+        <mat-list-item [routerLink]="['auth/compte',userID]" routerLinkActive="active">
+            <mat-icon>apps</mat-icon>
+            <span>Paramètres du compte</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item routerLink="recette/all" (click)="doSignOut">
+            <mat-icon>clear</mat-icon>
+            <span>Déconnexion</span>
+        </mat-list-item>
+    </div>
+    <mat-list-item routerLink="/about">
+        <mat-icon>info</mat-icon>
+        <span>A propos</span>
+    </mat-list-item>
+</mat-nav-list>

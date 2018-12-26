@@ -1,0 +1,193 @@
+<mat-card class="col-md-12 mt-1 mb-2">
+
+  <form [formGroup]="myForm" (ngSubmit)="submit(myForm)" enctype="multipart/form-data">
+    <mat-card-content>
+      <mat-toolbar mat-card-image color="primary">
+        <mat-toolbar-row>
+          <span>Déposer une nouvelle recette</span>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <p class="m-2"> Utilisez ce formulaire pour sauvegarder et partager vos recettes avec votre famille,
+        vos amis et les autres membres de CuisineAZ. Essayez d'être précis et clair pour que
+        tous nos utilisateurs puissent réaliser votre recette sans problème !
+      </p>
+      <div class="example-container">
+        <mat-form-field appearance="outline">
+          <mat-label>CATÉGORIES</mat-label>
+          <mat-select placeholder="Select" formControlName="idCategorie">
+            <mat-option value="" selected>Non renseigné</mat-option>
+            <mat-option *ngFor="let c of categories" [value]="c._id">{{c.nom}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nom de la recette</mat-label>
+          <input matInput formControlName="nom" placeholder="Choisissez un titre unique pour votre recette">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Discription</mat-label>
+          <textarea matInput formControlName="discription" placeholder="Laissez-nous un commentaire personnel sur votre recette ! Quelle est son histoire ?
+          Pourquoi est-elle l'une de vos recettes préférées ? Mettez-nous l'eau à la bouche !"></textarea>
+        </mat-form-field>
+      </div>
+      <!--  -->
+      <div class="row">
+        <div class="col-md-4 mb-2">
+          <app-img-upload [imgUrl]="o.imgUrl" (eventToParent)="getFileFromImgUpload($event)"></app-img-upload>
+        </div>
+        <div class="col-md-4">
+          <div class="example-container">
+            <mat-form-field appearance="outline">
+              <mat-label>Temps de préparation</mat-label>
+              <input class="without_ampm" matInput formControlName="tempsPreparation" placeholder="00:00" type="time">
+              <mat-icon matSuffix>timer</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Temps de cuisson</mat-label>
+              <input class="without_ampm" matInput formControlName="tempsCuisin" placeholder="00:00" type="time">
+              <mat-icon matSuffix>timer</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Temps de repos</mat-label>
+              <input class="without_ampm" matInput formControlName="tempsRepos" placeholder="00:00" type="time">
+              <mat-icon matSuffix>timer</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="example-container">
+            <mat-form-field appearance="outline">
+              <mat-label>Coût</mat-label>
+              <mat-select placeholder="Select" formControlName="cout">
+                <mat-option value="" selected>Non renseigné</mat-option>
+                <mat-option value="1">Pas cher</mat-option>
+                <mat-option value="2">Abordable</mat-option>
+                <mat-option value="3">Assez cher</mat-option>
+              </mat-select>
+              <mat-icon matSuffix>attach_money</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Difficulté</mat-label>
+              <mat-select placeholder="Select" formControlName="difficulte">
+                <mat-option value="" selected>Non renseigné</mat-option>
+                <mat-option value="1">Facile</mat-option>
+                <mat-option value="2">Intermédiaire</mat-option>
+                <mat-option value="3">Difficile</mat-option>
+              </mat-select>
+              <mat-icon matSuffix>directions_run</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre de personne(s)</mat-label>
+              <input matInput placeholder="00" type="number" formControlName="nbPersonne">
+              <mat-icon matSuffix>group</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+
+      </div>
+
+      <mat-toolbar  mat-card-image color="accent" class="mt-1">
+        <mat-toolbar-row>
+          <span>INGRÉDIENTS</span>
+        </mat-toolbar-row>
+      </mat-toolbar>
+
+      <div class="mt-2 mb-2" formArrayName="ingredients">
+        <div class="example-container mb-1" *ngFor="let ingredient of getIngredients.controls; let i=index"
+          [formGroupName]="i">
+          <div class="row m-2">
+            <div class="col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Quantité</mat-label>
+                <input matInput placeholder="00" type="number" class="form-control" formControlName="quantite" required>
+                <!-- <mat-icon matSuffix>group</mat-icon> -->
+                <mat-hint>ex: 120</mat-hint>
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Mesures</mat-label>
+                <mat-select placeholder="Select" formControlName="mesure" required>
+                  <mat-option value="">(Rien)</mat-option>
+                  <mat-option value="grammes">grammes (g)</mat-option>
+                  <mat-option value="kilogrammes">kilogrammes (kg)</mat-option>
+                  <mat-option value="litres">litres (l)</mat-option>
+                  <mat-option value="millilitres">millilitres (ml)</mat-option>
+                  <mat-option value="centilitres">centilitres (cl)</mat-option>
+                  <mat-option value="c. à café">c. à café</mat-option>
+                  <mat-option value="c. à soupe">c. à soupe</mat-option>
+                  <mat-option value="c. à thé">c. à thé</mat-option>
+                </mat-select>
+                <!-- <mat-hint>grammes (gr)</mat-hint> -->
+                <!-- <mat-icon matSuffix>directions_run</mat-icon> -->
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+              <mat-form-field appearance="outline">
+                <mat-label>Ingrédient</mat-label>
+                <input matInput type="text" formControlName="nom" required>
+                <!-- <mat-icon matSuffix>group</mat-icon> -->
+                <mat-hint>de farine</mat-hint>
+              </mat-form-field>
+            </div>
+          </div>
+          <button *ngIf="i > 0" mat-icon-button (click)="deleteIngredient(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <!-- <mat-divider></mat-divider> -->
+        </div>
+        <button mat-raised-button color="accent" type="button" (click)="addIngredients()">
+          <mat-icon>add</mat-icon> Ajouter un ingrédient
+        </button>
+      </div>
+
+      <mat-toolbar  mat-card-image color="accent">
+        <mat-toolbar-row>
+          <span>PRÉPARATION</span>
+        </mat-toolbar-row>
+      </mat-toolbar>
+
+      <div class="mt-2 mb-2" formArrayName="etapPreparations">
+        <div class="mb-1" *ngFor="let e of getPreparations.controls; let i=index" [formGroupName]="i">
+          <div class="example-container">
+            <mat-form-field appearance="outline">
+              <mat-label>Etape n° {{ i+1 }}</mat-label>
+              <textarea matInput formControlName="description" required></textarea>
+            </mat-form-field>
+            <button *ngIf="i > 0" mat-icon-button (click)="deleteEtap(i)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+        <button mat-raised-button color="accent" type="button" (click)="addEtapPreparation()">
+          <mat-icon>add</mat-icon> Ajouter un étape
+        </button>
+      </div>
+      <mat-toolbar  mat-card-image color="accent">
+        <mat-toolbar-row>
+          <span>ASTUCE</span>
+        </mat-toolbar-row>
+      </mat-toolbar>
+
+      <div class="example-container mt-2">
+        <mat-form-field appearance="outline">
+          <mat-label>Astuce</mat-label>
+          <textarea matInput formControlName="astuce" placeholder="Veuillez ajouter une astuce, un truc en plus qui donnera envie de tester votre recette."></textarea>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" type="submit">
+        <mat-icon>publish</mat-icon>Publier ma recette
+      </button>
+      &nbsp;
+      <button type="reset" mat-stroked-button routerLink="">
+        <mat-icon>cancel</mat-icon> Annuler
+      </button>
+    </mat-card-content>
+  </form>
+
+</mat-card>

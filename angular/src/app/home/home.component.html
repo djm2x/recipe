@@ -1,0 +1,21 @@
+<mat-card class="col-md-12 mt-1 mb-2">
+
+        <mat-card-content>
+          <mat-toolbar mat-card-image color="primary">
+            <mat-toolbar-row>
+              <span>Recette -v beta</span>
+            </mat-toolbar-row>
+          </mat-toolbar>
+          <div class="mtb-2 text-center" style="margin-bottom: 30%; margin-top: 15%;">
+            <h1>Bien venue a vous </h1>
+              <!-- <h2>Angular 7.</h2> -->
+              <div style="margin-bottom: 25%;"></div>
+      
+              <button mat-raised-button [routerLink]="[ '/recette/all' ]" style="width: 45%;" color="accent" (click)="loadModule()">
+                <strong>Aller aux recettes</strong> 
+                <mat-progress-bar *ngIf="isShowingRouteLoadIndicator" mode="indeterminate" class="mb-2" color="primary"></mat-progress-bar>
+              </button>
+          </div>
+        </mat-card-content>
+      
+      </mat-card>

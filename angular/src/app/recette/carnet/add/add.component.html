@@ -1,0 +1,10 @@
+<button mat-button matTooltip="Ajouter au favorie" *ngIf="session.isSignedIn()" 
+[disabled]="recette.idUser._id === session.userID() || !session.isSignedIn()"
+  type="button" [color]="styleBtn" (click)="addToCarnet()">
+  <mat-icon>save_alt</mat-icon>
+</button>
+
+<!-- <mat-button-toggle value="bold">Bold</mat-button-toggle> -->
+<!-- <button type="button" [ngClass]="styleBtn" class="btn fa fa-thumbs-o-up fa-1x" (click)="addToCarnet()">
+  &nbsp; {{totalLikeRecette}}
+</button> -->

@@ -1,0 +1,76 @@
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" routerLink="">Recette TDI-201</a>
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbarCollapse">
+      <!-- la partie gouche du nav -->
+      <ul class="navbar-nav mr-auto">
+        <!-- <li class="nav-item ">
+          <app-loader class=""></app-loader>
+        </li> -->
+
+      </ul>
+      <!-- la partie droit du nav -->
+      <div class="form-inline mt-2 mt-md-0">
+        <ul class="navbar-nav ml-auto">
+
+          <!-- partie authentification -->
+          <!-- le client est connecter -->
+          <div *ngIf="isSignedIn(); then In else Out"></div>
+          <ng-template #In>
+            <li class="nav-item dropdown">
+              <div class="media text-muted justify-content-between align-items-center">
+                <img class="rounded-circle" [src]="userImg()" data-holder-rendered="true" style="width: 32px; height: 32px;">
+                <a class="nav-link dropdown-toggle mr-lg-12" href="#" data-toggle="dropdown" >{{userName()}}</a>
+
+              <div class="dropdown-menu dropdown-menu-right" routerLinkActive="active">
+                <!-- <h6 class="dropdown-header">header</h6>
+                <div class="dropdown-divider"></div> -->
+                  <a class="dropdown-item" routerLink="/add-recette">
+                    <i class="fa fa-plus fa-fw" aria-hidden="true"></i>&nbsp;Déposer une recette
+                  </a>
+                  <a class="dropdown-item" [routerLink]="['/list-recette',session.userID()]">
+                    <i class="fa fa-book fa-fw" aria-hidden="true"></i>&nbsp;Mes recettes créées
+                  </a>
+                  <a class="dropdown-item" [routerLink]="['/carnet',session.userID()]">
+                    <i class="fa fa-archive fa-fw" aria-hidden="true"></i>&nbsp;Mon carnet de recettes
+                  </a>
+                  <a class="dropdown-item" [routerLink]="['auth/compte',session.userID()]">
+                    <i class="fa fa-cog fa-fw" aria-hidden="true"></i>&nbsp;Paramètres du compte
+                  </a>
+
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" routerLink="" (click)="doSignOut()" >
+                    <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i>&nbsp;Déconnexion
+                </a>
+              </div>
+            </div>
+            </li>
+            <!-- <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" routerLink="" (click)="logOut()" ><i class="fa fa-fw fa-sign-in"></i>Log out</a>
+            </li> -->
+          </ng-template>
+          <!-- le client est pas connecter -->
+          <ng-template #Out>
+            <!-- <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['signup']" ><i class="fa fa-fw fa-sign-in"></i>Register</a>
+            </li> -->
+            <li class="nav-item" routerLinkActive="active">
+              <a class="nav-link" [routerLink]="['auth/login']" ><i class="fa fa-fw fa-sign-in"></i>Login</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle mr-lg-12" href="#"  data-toggle="dropdown" >
+                Log in
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" >
+                <app-sign-in></app-sign-in>
+              </div>
+            </li> -->
+          </ng-template>
+        </ul>
+      </div>
+    </div>
+  </nav>
+

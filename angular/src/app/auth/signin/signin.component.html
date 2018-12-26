@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <mat-card class="col-md-8" style="margin: 18% 3%;">
+        <form [formGroup]="myForm" (ngSubmit)="submit(myForm)">
+
+            <mat-card-content>
+                <br>
+                <br>
+                <h1 class="text-center mt-2">LOGO</h1>
+                <br>
+                <br>
+                <h3 class="text-center mt-3">BIENVENUE ! VEUILLEZ VOUS IDENTIFIER.</h3>
+                <br>
+                <br>
+                <div class="example-container mtb-2 text-center">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email address</mat-label>
+                        <input matInput formControlName="email" placeholder="Email address">
+                        <mat-error *ngIf="myForm.get('email').invalid">Email est pas valider</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Mot de passe</mat-label>
+                        <input matInput formControlName="password" placeholder="Mot de passe" [type]="hide ? 'password' : 'text'">
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </mat-form-field>
+                    <br>
+                    <button mat-raised-button color="primary" type="submit">
+                        <!-- <mat-icon>publish</mat-icon> -->
+                        Connexion
+                    </button>
+                    <br>
+                    <h4>Vous n'avez pas encore de compte?</h4>
+                    <button type="button" mat-raised-button color="accent" (click)="this.router.navigate(['auth/signup'])">
+                        <!-- <mat-icon>cancel</mat-icon> -->
+                        Inscrivez-vous maintenant
+                    </button>
+                </div>
+
+                <!-- <button type="submit" class="btn btn-primary">Connexion</button>
+            <hr>
+            <button class="btn btn-success mb-3" (click)="this.router.navigate(['auth/signup'])">Inscrivez-vous
+                maintenant</button> -->
+            </mat-card-content>
+        </form>
+
+    </mat-card>
+</div>

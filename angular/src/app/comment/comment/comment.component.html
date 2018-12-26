@@ -1,0 +1,31 @@
+<div *ngFor="let c of comments; let i=index">
+  <div class="col-md-12 example-container" style="padding-bottom: 0%;">
+    <!-- <img class="profil-img" [src]="API_URL + c.idUser.imgUrl"> -->
+    <mat-form-field appearance="outline" style="padding-top: 12px;">
+      <mat-label>{{c.idUser.nom}} {{c.idUser.prenom}}</mat-label>
+      <textarea matInput [(ngModel)]="c.description" placeholder="Votre commentaire" [readonly]="isReadonly"></textarea>
+    </mat-form-field>
+    <div class="row" *ngIf="isMyCommnent(c.idUser._id)">
+        <span class="example-spacer"></span>
+      <button mat-mini-fab color="accent" type="button" (click)="edit(c)">
+        <mat-icon>create</mat-icon>
+      </button>
+      <button mat-mini-fab color="warn" type="button" (click)="delete(c._id)" >
+        <mat-icon>delete_forever</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<mat-divider></mat-divider>
+  <!-- <div class="col-md-2 text-center pt-2">
+    <img class="  profil-img" [src]="session.userImg()">
+  </div> -->
+  <div class="col-md-12">
+    <form [formGroup]="myForm" (ngSubmit)="submit(myForm)" class="example-container mt-2">
+      <mat-form-field appearance="outline">
+        <mat-label>{{session.userName()}}</mat-label>
+        <textarea matInput formControlName="description" placeholder="Votre commentaire"></textarea>
+      </mat-form-field>
+      <button mat-raised-button type="submit" [disabled]="!session.isSignedIn() || !myForm.valid">Commenter</button>
+    </form>
+  </div>

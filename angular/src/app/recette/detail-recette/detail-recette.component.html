@@ -1,0 +1,124 @@
+<mat-card class="col-md-12 mt-1 mb-2 shadow">
+  <mat-card-content>
+
+    <mat-toolbar mat-card-image color="primary">
+      <mat-toolbar-row>
+        {{o.nom}}
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="row mtb-2">
+      <div class="col-md-5">
+          <app-img-display [img]="o.imgUrl"></app-img-display>
+      </div>
+      <div class="col-md-6">
+        <div class="row justify-content-center">
+          <app-note-recette [idRecette]="o._id"></app-note-recette>
+          <app-count-comment [idRecette]="o._id"></app-count-comment>
+          <app-add [recette]="o"></app-add>
+        </div>
+        <mat-divider></mat-divider>
+        <div style="margin-top: 10%;">
+
+          <div class="row justify-content-center mtb-2">
+              <app-img-display [img]="o.idUser.imgUrl" width="50px" height="50px" radius="50%"></app-img-display>
+          </div>
+          <h3 class="row justify-content-center mtb-2">{{o.idUser.nom}} {{o.idUser.prenom}}</h3>
+          <h4 class="row justify-content-center mtb-2">Email : {{o.idUser.email}}</h4>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <mat-toolbar mat-card-image color="accent">
+      <mat-toolbar-row>
+        <span>Guide de préparation : {{o.nom}}</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div class="row justify-content-center mtb-2">
+      <mat-chip-list>
+        <mat-chip matTooltip="Temps de préparation">
+          {{o.tempsPreparation}}&nbsp;<mat-icon matSuffix>timer</mat-icon>
+        </mat-chip>
+        <mat-chip matTooltip="Temps  de cuisson">
+          {{o.tempsCuisin}}&nbsp;<mat-icon matSuffix>timer</mat-icon>
+        </mat-chip>
+        <mat-chip matTooltip="Temps  de repos">
+          {{o.tempsRepos}}&nbsp;<mat-icon matSuffix>timer</mat-icon>
+        </mat-chip>
+        <span [ngSwitch]="o.cout">
+          <mat-chip matTooltip="Coût">
+            <div *ngSwitchCase="1">Pas cher</div>
+            <div *ngSwitchCase="2">Abordable</div>
+            <div *ngSwitchCase="3">Assez cher</div>
+            &nbsp;<mat-icon matSuffix>attach_money</mat-icon>
+          </mat-chip>
+        </span>
+        <span [ngSwitch]="o.difficulte">
+          <mat-chip matTooltip="Difficulté">
+            <div *ngSwitchCase="1">Facile</div>
+            <div *ngSwitchCase="2">Intermédiaire</div>
+            <div *ngSwitchCase="3">Difficile</div>
+            &nbsp;<mat-icon matSuffix>directions_run</mat-icon>
+          </mat-chip>
+        </span>
+        <mat-chip matTooltip="Nombre de personne(s)">
+          {{o.nbPersonne}}&nbsp;<mat-icon matSuffix>group</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="row mtb-2 pt-2">
+      <div class="col-md-4">
+        <mat-toolbar color="accent">
+          <mat-toolbar-row>
+            <span>INGRÉDIENTS</span>
+          </mat-toolbar-row>
+        </mat-toolbar>
+        <br>
+        <div class="col-md-12" *ngFor="let e of o.ingredients; let i=index">
+          <p class="pt-2" style="margin-bottom: 0%;"><strong>{{i+1}}</strong> : {{e.quantite}} {{e.mesure}} de
+            {{e.nom}}</p>
+          <div>
+            <mat-divider></mat-divider>
+          </div>
+          <!-- 1 c. à soupe de fructose (ou sucre de votre choix) -->
+        </div>
+      </div>
+      <div class="col-md-8">
+        <mat-toolbar color="accent">
+          <mat-toolbar-row>
+            <span>PRÉPARATION</span>
+          </mat-toolbar-row>
+        </mat-toolbar>
+        <br>
+        <div class="col-md-12" *ngFor="let e of o.etapPreparations; let i=index">
+          <p class="pt-2" style="margin-bottom: 0%;"><strong>ÉTAPE {{i+1}}</strong> : {{e.description}}</p>
+          <div>
+            <mat-divider></mat-divider>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <mat-toolbar mat-card-image color="accent">
+      <mat-toolbar-row>
+        <span>ASTUCES</span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div class="row mtb-2">
+      <div class="col-md-12">
+        {{o.astuce}}
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="row justify-content-center ptb-2">
+      <app-note-recette [idRecette]="o._id"></app-note-recette>
+      <app-count-comment [idRecette]="o._id"></app-count-comment>
+    </div>
+    <mat-divider style="padding: 5%"></mat-divider>
+    <app-comment [idRecette]="o._id"></app-comment>
+  </mat-card-content>
+
+</mat-card>

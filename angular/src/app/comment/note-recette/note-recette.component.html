@@ -1,0 +1,8 @@
+<!-- note = {{liked}}  <br> -->
+<button mat-button [disabled]="!session.isSignedIn()" type="button" [color]="styleBtn" (click)="jaime()">
+  <mat-icon [matBadge]="totalLikeRecette" matBadgeColor="accent">favorite</mat-icon>
+</button>
+<!-- |
+<button type="button" class="btn btn-light fa fa-comment-o">&nbsp; {{service.countComment}}</button> -->
+
+<!-- [ngClass]="(note== -1)?'btn-light':'btn-primary'" -->

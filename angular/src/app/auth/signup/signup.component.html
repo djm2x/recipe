@@ -1,0 +1,86 @@
+<mat-card class="col-md-12 mt-1 mb-2">
+  <form [formGroup]="myForm" (ngSubmit)="submit(myForm)" enctype="multipart/form-data">
+
+    <mat-card-content>
+
+      <mat-toolbar mat-card-image color="primary">
+        <mat-toolbar-row>
+          <span>S’inscrire</span>
+        </mat-toolbar-row>
+      </mat-toolbar>
+
+      <div class="row">
+        <div class="col-md-6">
+
+          <div class="example-container">
+            <mat-form-field appearance="outline">
+              <mat-label>Nom</mat-label>
+              <input matInput formControlName="nom" placeholder="Nom">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Prenom</mat-label>
+              <input matInput formControlName="prenom" placeholder="Prenom">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Email address</mat-label>
+              <input matInput formControlName="email" placeholder="Email address">
+              <mat-error *ngIf="myForm.get('email').invalid">Email est pas valider</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Mot de passe</mat-label>
+              <input matInput formControlName="password" placeholder="Mot de passe" [type]="hide ? 'password' : 'text'">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Confirmer le mot de passe</mat-label>
+              <input matInput formControlName="passwordConfirmation" placeholder="Confirmer le mot de passe" [type]="hide ? 'password' : 'text'">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error>les mot pass sont pas identique</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Date de Naissance</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="dateNaissance" placeholder="choisir un date">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>A propos de moi</mat-label>
+              <textarea matInput formControlName="apropos" placeholder="A propos de moi"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Civilite</mat-label>
+              <mat-select placeholder="Select" formControlName="civilite">
+                <mat-option value="1">M</mat-option>
+                <mat-option value="2">F</mat-option>
+              </mat-select>
+              <!-- <mat-icon matSuffix>attach_money</mat-icon> -->
+            </mat-form-field>
+          </div>
+        </div>
+        <!--  -->
+        <div class="col-md-6 mb-2">
+            <!-- <img class="image-responsive" (error)="imgError(img)" #img [src]="imgUrl" width="600" height="400">
+            <input hidden formControlName="imgUrl" #imgInput type="file" accept="image/*" (change)="handleFileInput($event.target.files)">
+            <button mat-raised-button [color]="colorInputFile" type="button" (click)="openInput(imgInput)" style="width: 100%">
+              choisir un photo
+            </button> -->
+            <app-img-upload [imgUrl]="o.imgUrl" (eventToParent)="getFileFromImgUpload($event)"></app-img-upload>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" type="submit">
+        <mat-icon>publish</mat-icon>Valider
+      </button>
+      &nbsp;ou&nbsp;
+      <button type="reset" mat-stroked-button routerLink="">
+        <mat-icon>cancel</mat-icon> Annuler
+      </button>
+    </mat-card-content>
+  </form>
+
+</mat-card>
