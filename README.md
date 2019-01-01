@@ -9,11 +9,11 @@ la base de donne mongodb est delpoyer dans MongoDB Atlas Global Cloud Database (
 
 # recipe
 Rest API (node &amp; express js) &amp; Angular
-tech:
-angular universal : https://angular.io/guide/universal
-angular lazy loading : https://angular.io/guide/lazy-loading-ngmodules
-angular material : https://material.angular.io
-metarial icons : https://material.io/tools/icons/
-socket io : pour cree de real-time application https://socket.io/docs/
-mongoDb : https://docs.mongodb.com/
+tech: <br>
+angular universal : https://angular.io/guide/universal <br>
+angular lazy loading : https://angular.io/guide/lazy-loading-ngmodules <br>
+angular material : https://material.angular.io <br>
+metarial icons : https://material.io/tools/icons/ <br>
+socket io : pour cree de real-time application https://socket.io/docs/ <br>
+mongoDb : https://docs.mongodb.com/ <br>
 
