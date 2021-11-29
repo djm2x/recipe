@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   @HostBinding('class.default-theme') defaultTheme = true;
   @HostBinding('class.dark-theme') darkTheme = false;
   @ViewChild('div') divHTML: ElementRef;
-
+  img = '../../../assets/intro.jpg';
   constructor(private overlayContainer: OverlayContainer) { }
 
   ngOnInit(): void {

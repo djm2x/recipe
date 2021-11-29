@@ -9,7 +9,7 @@ import { CarnetComponent } from './carnet/carnet.component';
 import { MyGuard } from '../my.guard';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'recettes', pathMatch: 'full' },
+  { path: '', redirectTo: 'all', pathMatch: 'full' },
   { path: 'all', component: RecetteComponent/*, resolve: {mydata: RecetteResolve}*/ },
   { path: 'add-recette', component: AddRecetteComponent, canActivate: [MyGuard] },
   { path: 'list-recette/:id', component: ListRecetteComponent, canActivate: [MyGuard] },

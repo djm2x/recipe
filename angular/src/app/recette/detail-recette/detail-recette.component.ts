@@ -37,6 +37,7 @@ export class DetailRecetteComponent implements OnInit {
     this.route.data.subscribe(
       r => {
         this.o = <Recette>r['mydata'];
+        // console.log(this.o);
         this.setSeo();
       },
       e => console.log(e)

@@ -10,7 +10,8 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start2": "nodemon ./index.js --exec babel-node -e js",
         "start1": "nodemon ./index.js --inspect",
-        "start": "node ./index.js"
+        "start": "node ./index.js",
+        "deploy": "heroku login && git init && heroku git:remote -a recette-cuisine && git add . && git commit -am 'better' && git push heroku master"
     },
     "author": "mourabit",
     "license": "ISC",
@@ -39,6 +40,7 @@
         "moment": "^2.22.2",
         "mongoose": "^5.3.6",
         "multer": "^1.4.1",
+        "ngx-cacheable": "^1.0.7",
         "reflect-metadata": "^0.1.10",
         "rxjs": "^6.3.3",
         "socket.io": "^2.1.1",

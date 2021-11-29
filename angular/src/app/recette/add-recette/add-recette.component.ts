@@ -22,12 +22,12 @@ export class AddRecetteComponent implements OnInit {
     private categorieService: CategorieService, private session: SessionService) { }
 
   ngOnInit() {
-    this.createForm();
-    this.getCategories();
     // because admin can update this, and we dont want his name in this recip
     if (this.o.idUser === '') {
       this.o.idUser = this.session.userID();
     }
+    this.createForm();
+    this.getCategories();
   }
 
   getCategories(): void {
@@ -87,6 +87,7 @@ export class AddRecetteComponent implements OnInit {
   }
   submit(o: FormGroup) {
     const obj = o.value as User;
+    console.log(obj);
     const formData = this.checkImageIfExiste(obj);
 
     if (this.o._id === undefined) {
@@ -101,7 +102,7 @@ export class AddRecetteComponent implements OnInit {
       .subscribe(r => {
         this.router.navigate(['/recette/all']);
       }, e => {
-        console.log(e);
+        console.log(e.message);
       });
   }
 

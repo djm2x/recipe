@@ -5,3 +5,29 @@
     0 1px 1px 0 rgba(0,0,0,.14), 
     0 1px 3px 0 rgba(0,0,0,.12);
   }
+
+  .img1{
+    /* background-image: url("../assets/1.jpg"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    background-attachment: fixed;
+  } 
+  
+  .h1 {
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 1.5;
+    letter-spacing: 0.075em;
+    text-align: center;
+    padding: 15rem 0;
+    color: aliceblue;
+  }
+
+  .over {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    max-width: 1540px !important;
+    max-width: 1020px !important;
+  }

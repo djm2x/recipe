@@ -1,10 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Recette } from '../../model';
-import { RecetteService } from '../shared/recette.service';
-import { environment } from '../../../environments/environment';
-import { MatDialog } from '@angular/material';
-import { DeleteRecetteComponent } from '../delete-recette/delete-recette.component';
 import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
@@ -13,10 +7,8 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrls: ['./recette.component.css'],
 })
 export class RecetteComponent implements OnInit {
-  // imgUrl = '../../../assets/uploadIMG.png';
-  // o: Recette = new Recette();
-  // list: Recette[] = [];
-  // API_URL = environment.hubUrl;
+  img = '../../../assets/intro.jpg';
+
   constructor(private title: Title, private meta: Meta) { }
 
   ngOnInit() {

@@ -55,3 +55,22 @@ h1.example-app-name {
   // top: 0;
   // left: 0;
 }
+
+.img1{
+  /* background-image: url("../assets/1.jpg"); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+  background-attachment: fixed;
+} 
+
+.h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 1.5;
+  letter-spacing: 0.075em;
+  text-align: center;
+  padding: 20rem 0;
+  color: aliceblue;
+}

@@ -32,10 +32,11 @@
         </button>
       <!--  -->
       <div *ngIf="isSignedIn()">
-        <button mat-raised-button class="example-icon" [matMenuTriggerFor]="menu" style="padding: 1px 1px 2px 2px;">
-          <app-img-display [img]="userImg" width="32px" height="32px" radius="50%" widthProgressBar="15px"
+        <button mat-stroked-button class="example-icon" [matMenuTriggerFor]="menu" style="padding: 1px 1px 2px 2px;">
+          <!-- <app-img-display [img]="userImg" width="32px" height="32px" radius="50%" widthProgressBar="15px"
             heightProgressBar="3px" style="float: left; margin-right: 5px; padding-left: 5px; padding-right: 5px;">
-          </app-img-display> {{userName()}}&nbsp;
+          </app-img-display>  -->
+          {{userName()}}&nbsp;
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item routerLink="/recette/add-recette" routerLinkActive="active">

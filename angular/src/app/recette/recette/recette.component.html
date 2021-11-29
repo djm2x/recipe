@@ -8,5 +8,12 @@
     </mat-card-content>
   </mat-card>
 </div> -->
-
-<app-list-recette-shared></app-list-recette-shared>
+<div class="img1" [ngStyle]="{'background-image': 'url(' + img + ')'}">
+  <div class="h1">
+    <h1 style="font-size: 60px;">Recette de cuisine</h1>
+    <mat-icon style="font-size: 40px;">keyboard_arrow_down</mat-icon>
+  </div>
+</div>
+<div class="container mt-2">
+  <app-list-recette-shared></app-list-recette-shared>
+</div>

@@ -10,7 +10,7 @@ import { IssamComponent } from './home/issam/issam.component';
 
 
 export const AppRoutes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'recette', pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
   { path: 'issam', component: IssamComponent },

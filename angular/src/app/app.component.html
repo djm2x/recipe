@@ -1,4 +1,4 @@
-<div class="example-container" >
+<div class="example-container">
     <header class="example-toolbar">
         <app-loader class="topbar"></app-loader>
         <app-navbar (toggleSideNave)="toggleSideNave($event)" (changeTheme)="changeTheme($event)"></app-navbar>
@@ -7,12 +7,19 @@
     <mat-sidenav-container class="example-sidenav-container">
         <div #div (click)="snav.toggle()"></div>
         <mat-sidenav #snav mode="over" [fixedInViewport]="true" fixedTopGap="56" (click)="snav.close()">
-           <app-sidebar></app-sidebar>
+            <app-sidebar></app-sidebar>
         </mat-sidenav>
 
         <mat-sidenav-content>
-            <main class="mt-2" style="min-height: calc(100vh - 80px);">
-                <div class="container">
+            <!-- <div class="img1" style="height: 400px;" [ngStyle]="{'background-image': 'url(' + img + ')'}">
+                <div class="h1" >
+                    <h1 style="font-size: 60px;">Recette de cuisine</h1>
+                    <mat-icon style="font-size: 40px;">keyboard_arrow_down</mat-icon>
+                </div>
+            </div> -->
+            <main style="min-height: calc(100vh - 80px);">
+
+                <div class="">
                     <!-- <button mat-raised-button (click)="sidenav.toggle()">sidenav.toggle()</button> -->
                     <router-outlet>
                     </router-outlet>
