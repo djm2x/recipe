@@ -34,7 +34,9 @@ export const AppRoutes: Routes = [
   imports: [RouterModule.forRoot(AppRoutes, {
     // enableTracing: true, // <-- debugging purposes only
     preloadingStrategy: AppPreloadingStrategy // PreloadAllModules
-  })],
+    ,
+    relativeLinkResolution: 'legacy'
+})],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
