@@ -5,30 +5,30 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "ng build --configuration production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "b": "npm run build-server&& npm run build-client",
     "build-server": "ng run angular:server",
-    "build-client:prod": "ng build --prod",
+    "build-client:prod": "ng build --configuration production",
     "build-client": "ng build",
     "ssr0": "npm run build-client && npm run build-server",
     "ssr": "npm run build-server && npm run build-client:prod"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^11.2.14",
+    "@angular/animations": "^12.2.13",
     "@angular/cdk": "^7.0.2",
-    "@angular/common": "11.2.14",
-    "@angular/compiler": "11.2.14",
-    "@angular/core": "11.2.14",
-    "@angular/forms": "11.2.14",
+    "@angular/common": "12.2.13",
+    "@angular/compiler": "12.2.13",
+    "@angular/core": "12.2.13",
+    "@angular/forms": "12.2.13",
     "@angular/material": "^7.0.2",
-    "@angular/platform-browser": "11.2.14",
-    "@angular/platform-browser-dynamic": "11.2.14",
-    "@angular/platform-server": "11.2.14",
-    "@angular/router": "11.2.14",
+    "@angular/platform-browser": "12.2.13",
+    "@angular/platform-browser-dynamic": "12.2.13",
+    "@angular/platform-server": "12.2.13",
+    "@angular/router": "12.2.13",
     "@nguniversal/module-map-ngfactory-loader": "^7.0.2",
     "@types/socket.io": "^1.4.38",
     "bootstrap": "^4.1.0",
@@ -40,13 +40,13 @@
     "rxjs": "^6.6.7",
     "socket.io-client": "^2.1.1",
     "tslib": "^2.0.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1102.15",
-    "@angular/cli": "^11.2.15",
-    "@angular/compiler-cli": "11.2.14",
-    "@angular/language-service": "11.2.14",
+    "@angular-devkit/build-angular": "~12.2.13",
+    "@angular/cli": "^12.2.13",
+    "@angular/compiler-cli": "12.2.13",
+    "@angular/language-service": "12.2.13",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.2",
     "@types/jwt-decode": "^2.2.1",
@@ -62,6 +62,6 @@
     "protractor": "~7.0.0",
     "ts-node": "~7.0.1",
     "tslint": "~6.1.0",
-    "typescript": "4.0.8"
+    "typescript": "4.3.5"
   }
 }
