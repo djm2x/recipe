@@ -11,7 +11,7 @@
         "start2": "nodemon ./index.js --exec babel-node -e js",
         "start1": "nodemon ./index.js --inspect",
         "f": "cd angular && ng serve --port 4200",
-        "start": "node ./index.js",
+        "b": "node ./index.js",
         "deploy": "heroku login && git init && heroku git:remote -a recette-cuisine && git add . && git commit -am 'better' && git push heroku master"
     },
     "author": "mourabit",
