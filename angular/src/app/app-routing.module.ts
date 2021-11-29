@@ -15,9 +15,9 @@ export const AppRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'issam', component: IssamComponent },
 
-  { path: 'recette', loadChildren: './recette/recette.module#RecetteModule', data: { preload: true, delay: false } },
-  { path: 'auth', loadChildren: './auth/auth.module#AuthModule', data: { preload: true, delay: true } },
-  { path: 'img', loadChildren: './utils/utils.module#UtilsModule', data: { preload: false, delay: false } },
+  { path: 'recette', loadChildren: () => import('./recette/recette.module').then(m => m.RecetteModule), data: { preload: true, delay: false } },
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule), data: { preload: true, delay: true } },
+  { path: 'img', loadChildren: () => import('./utils/utils.module').then(m => m.UtilsModule), data: { preload: false, delay: false } },
   { path: '**', component: PageNotFoundComponent },
   // {
   // path: 'login', loadChildren: './auth/auth.module#AuthModule',
