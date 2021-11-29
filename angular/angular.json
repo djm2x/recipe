@@ -109,7 +109,6 @@
               "optimization": true,
               "sourceMap": false,
               "namedChunks": false,
-              "vendorChunk": false,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
