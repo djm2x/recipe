@@ -15,12 +15,12 @@ import { NavbarComponent } from './home/navbar/navbar.component';
 import { MatModule } from './mat.module.1';
 import { AboutComponent } from './home/about/about.component';
 import { UtilsModule } from './utils/utils.module';
-import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material';
 import { MyGuard } from './my.guard';
 import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { FooterComponent } from './home/footer/footer.component';
 import { IssamComponent } from './home/issam/issam.component';
 import { TableSharedComponent } from './home/table-shared/table-shared.component';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [

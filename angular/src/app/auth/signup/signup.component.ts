@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { ApiService } from '../shared/api.service';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';

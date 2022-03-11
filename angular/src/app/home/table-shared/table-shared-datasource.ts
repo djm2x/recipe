@@ -1,8 +1,9 @@
 import { DataSource } from '@angular/cdk/collections';
-import { MatPaginator, MatSort } from '@angular/material';
 import { map, tap, startWith, switchMap, catchError } from 'rxjs/operators';
 import { Observable, of as observableOf, merge, BehaviorSubject } from 'rxjs';
 import { Injectable, EventEmitter } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 // @Injectable({
 //   providedIn: 'root'

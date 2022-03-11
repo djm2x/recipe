@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Headers, RequestOptions, Response, RequestMethod } from '@angular/http';
 import { SessionService } from './session.service';
 import { Observable } from 'rxjs/internal/Observable';
 import { environment } from '../../../environments/environment';

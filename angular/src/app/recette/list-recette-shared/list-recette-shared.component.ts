@@ -1,17 +1,17 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { Recette } from '../../model';
-import { MatDialog, MatPaginator } from '@angular/material';
+import { Component, OnInit, Input, ViewChild, AfterViewInit } from '@angular/core';
 import { DeleteRecetteComponent } from '../delete-recette/delete-recette.component';
 import { SessionService } from '../../auth/shared/session.service';
 import { RecetteService } from '../shared/recette.service';
 import { CarnetService } from '../carnet/carnet.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-list-recette-shared',
   templateUrl: './list-recette-shared.component.html',
   styleUrls: ['./list-recette-shared.component.css']
 })
-export class ListRecetteSharedComponent implements OnInit {
+export class ListRecetteSharedComponent implements OnInit, AfterViewInit {
   list = [];
   @Input() idUserRecette: string;
   @Input() idUserCarnet: string;
@@ -21,9 +21,13 @@ export class ListRecetteSharedComponent implements OnInit {
   constructor(public dialog: MatDialog, private session: SessionService
     , private service: RecetteService, private serviceCrn: CarnetService) { }
 
-  ngOnInit() {
+  ngAfterViewInit(): void {
     this.methode();
     this.setPagination();
+  }
+
+  ngOnInit() {
+
   }
 
   // imgError(img: any) {
@@ -39,7 +43,7 @@ export class ListRecetteSharedComponent implements OnInit {
 
   public setPagination() {
     // this.paginator.pageIndex = 0;
-    this.paginator.page.subscribe(info => {
+    this.paginator?.page.subscribe(info => {
       const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
       // console.log(this.paginator.pageIndex , this.paginator.pageSize);
       this.getAll(startIndex, this.paginator.pageSize);

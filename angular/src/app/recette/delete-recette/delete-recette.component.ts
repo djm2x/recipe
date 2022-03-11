@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject, EventEmitter } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { RecetteService } from '../shared/recette.service';
 import { Observable } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-delete-recette',

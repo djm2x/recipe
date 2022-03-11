@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild, Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -16,7 +16,7 @@ const IMG_Loading = ASSETS_PATH + 'loading.jpg';
   templateUrl: './img-display.component.html',
   styleUrls: ['./img-display.component.css']
 })
-export class ImgDisplayComponent implements OnInit {
+export class ImgDisplayComponent implements OnInit, AfterViewInit {
   @Input() img: string;
   @Input() width = '';
   @Input() height = '';
@@ -26,12 +26,15 @@ export class ImgDisplayComponent implements OnInit {
   @Input() widthProgressBar = '';
   @Input() heightProgressBar = '';
   @ViewChild('im') imgHTML: ElementRef;
+  imageUrl = IMG_Loading;
   isImageLoading = true;
 
   constructor(private http: HttpClient, @Inject(PLATFORM_ID) protected platformId: Object) { }
+  ngAfterViewInit(): void {
+    this.getImageFromService();
+  }
 
   ngOnInit() {
-    this.getImageFromService();
   }
 
   service(): Observable<Blob> {

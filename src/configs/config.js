@@ -7,7 +7,7 @@ const uri = `mongodb://${user}:${password}@${host}:${port}/${database}`
 const uri2 = 'mongodb+srv://root:toor@cluster0-gaygx.mongodb.net/recetteDB';
 
 module.exports = {
-    url: uri,
+    url: uri2,
     'secret': 'secret-key',
     ROLEs: ['USER', 'ADMIN', 'PM'],
 };

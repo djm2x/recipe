@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, AfterViewInit, EventEmitter, Input, Output } from '@angular/core';
-import { MatPaginator, MatSort } from '@angular/material';
 import { TableSharedDataSource } from './table-shared-datasource';
 import { environment } from '../../../environments/environment';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 const API_URL = environment.apiUrl + 'bins';
 @Component({

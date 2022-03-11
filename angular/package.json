@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "b": "npm run build-server&& npm run build-client",
+    "b": "npm run build-server && npm run build-client",
     "build-server": "ng run angular:server",
     "build-client:prod": "ng build --configuration production",
     "build-client": "ng build",
