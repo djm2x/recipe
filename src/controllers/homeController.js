@@ -1,20 +1,26 @@
 
-import {Express, Response} from 'express';
+import { Express, Response } from 'express';
+
+// @ts-check
+// @return {Response}
+
+/** 
+ * A simple string example.
+ * @type {string} routeName
+ */
+const routeName = '/api/users/';
+
 
 /**
- * @param {Express} app
- * @return {Response}
- */
-
- const routeName = '/api/users/';
-
+* @param {Express} app
+*/
 const HomeController = (app) => {
 
     // get
-    
+
     app.route(routeName).get((req, res) => {
 
-        return res.send('');
+        res.send('');
     });
 
 
