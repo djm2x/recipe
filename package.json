@@ -63,7 +63,6 @@
     "@angular/compiler-cli": "13.2.6",
     "@angular/language-service": "13.2.6",
     "@types/jasmine": "~3.6.0",
-    "@types/jasminewd2": "~2.0.2",
     "@types/jwt-decode": "^2.2.1",
     "@types/node": "^12.11.1",
     "@types/socket.io": "^1.4.38",
