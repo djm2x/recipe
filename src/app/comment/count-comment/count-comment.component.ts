@@ -23,7 +23,7 @@ export class CountCommentComponent implements OnInit {
 
   ngOnInit() {
     this.getCountComment();
-    this.socket();
+    // this.socket();
   }
 
   getCountComment() {

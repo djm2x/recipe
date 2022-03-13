@@ -77,7 +77,8 @@ export class LoaderInterceptor implements HttpInterceptor {
             }
             this.removeRequest(req);
             observer.error(err);
-            this.snackBar.openSnackBar(err.error);
+            console.warn(err);
+            // this.snackBar.openSnackBar(JSON.stringify(  err.error));
           }, () => {
             this.removeRequest(req);
             observer.complete();
