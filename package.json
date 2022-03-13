@@ -2,16 +2,6 @@
   "name": "node",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
-  "type": "module",
-  "nodemonConfig": {
-    "ignore": [
-      "src/*"
-    ]
-  },
-  "engines": {
-    "node": "16.10.0"
-  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
