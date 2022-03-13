@@ -11,9 +11,19 @@ if (environment.production) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  platformBrowserDynamic().bootstrapModule(AppModule)
-  .then(m => {
-    // enableDebugTools(AppComponent);
-  })
-  .catch(err => console.log(err));
+  function bootstrap() {
+    platformBrowserDynamic().bootstrapModule(AppModule)
+      .then(m => {
+        // enableDebugTools(AppComponent);
+      })
+      .catch(err => console.log(err));
+  }
+
+
+  if (document.readyState === 'complete') {
+    bootstrap();
+  } else {
+    document.addEventListener('DOMContentLoaded', bootstrap);
+  }
+
 });
