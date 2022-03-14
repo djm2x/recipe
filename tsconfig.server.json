@@ -6,11 +6,16 @@
     "target": "es2019",
     "types": [
       "node"
-    ]
+    ],
+    "paths": {
+      "bufferutil": ["src/empty.ts"],
+      "utf-8-validate": ["src/empty.ts"],
+    }
   },
   "files": [
     "src/main.server.ts",
-    "server.ts"
+    "server.ts",
+    "src/empty.ts"
   ],
   "angularCompilerOptions": {
     "entryModule": "./src/app/app.server.module#AppServerModule"

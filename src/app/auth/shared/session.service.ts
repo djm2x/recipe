@@ -1,5 +1,4 @@
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import * as jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
 import { HttpHeaders } from '@angular/common/http';
 import { User } from '../../model';
