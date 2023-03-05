@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../shared/api.service';
 import { UntypedFormBuilder, UntypedFormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import * as jwt_decode from 'jwt-decode';
 import * as moment from 'moment';
 import { User } from '../../model';
 import { SessionService } from '../shared/session.service';

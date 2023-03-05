@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../shared/api.service';
-import * as jwt_decode from 'jwt-decode';
 import { User } from '../../model';
 import { SessionService } from '../shared/session.service';
 @Component({
