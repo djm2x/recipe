@@ -8,8 +8,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CompteComponent } from './compte/compte.component';
 import { MatModule } from '../mat.module';
 import { UtilsModule } from '../utils/utils.module';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { JwtInterceptor } from './shared/Jwt-interceptor';
 
 @NgModule({
   imports: [
