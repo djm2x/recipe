@@ -17,6 +17,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start2": "nodemon ./index.js --exec babel-node -e js",
     "start1": "nodemon ./index.js --inspect",
+    "prod": "NODE_ENV=production ng build --configuration=production --output-path dist",
     "zip": "npm run prod -- --output-path=dist && gzipper c ./dist",
     "f": "ng serve --port 4200",
     "b": "nodemon --experimental-modules --es-module-specifier-resolution=node ./server.js",
