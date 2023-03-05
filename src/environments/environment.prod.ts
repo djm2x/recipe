@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://recette-cuisine.herokuapp.com/api/',
-  hubUrl: 'https://recette-cuisine.herokuapp.com/',
+  apiUrl: 'https://recipe-api.dev-solus.com/api/',
+  hubUrl: 'https://recipe-api.dev-solus.com/',
 };
 
