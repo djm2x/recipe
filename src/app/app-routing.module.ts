@@ -35,7 +35,7 @@ export const AppRoutes: Routes = [
     // enableTracing: true, // <-- debugging purposes only
     preloadingStrategy: AppPreloadingStrategy // PreloadAllModules
     ,
-    relativeLinkResolution: 'legacy',
+    // relativeLinkResolution: 'legacy',
     initialNavigation: 'enabledBlocking'
 })],
   exports: [RouterModule],

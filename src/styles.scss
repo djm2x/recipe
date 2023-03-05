@@ -7,20 +7,9 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap-grid.min.css";
 @import "../node_modules/bootstrap/dist/css/bootstrap-reboot.min.css";
 
-@import '~@angular/material/theming';
 @import 'themes/black-theme.scss';
-@include mat-core();
-.dark-theme {
-  
-  @include angular-material-theme($alt-theme);
-  // @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
-}
 
-.default-theme {
-  // @import 'themes/default-theme.scss';
-  @include angular-material-theme($candy-app-theme);
-  // @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-}
+
 
 
 

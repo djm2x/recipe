@@ -29,7 +29,7 @@ export class NoteRecetteComponent implements OnInit {
   ngOnInit() {
     this.getNoteRecette();
     this.checkJaime();
-    // this.socket();
+    this.socket();
   }
 
   getNoteRecette() {

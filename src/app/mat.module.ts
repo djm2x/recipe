@@ -52,6 +52,7 @@ import {MatTreeModule} from '@angular/material/tree';
 
 @NgModule({
   exports: [
+    MatChipsModule,
     CdkTableModule,
     CdkTreeModule,
     MatAutocompleteModule,

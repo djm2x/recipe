@@ -30,7 +30,7 @@ export class CommentComponent implements OnInit {
   ngOnInit() {
     this.getComments();
     this.createForm();
-    // this.socket();
+    this.socket();
   }
 
   getComments(): void {
