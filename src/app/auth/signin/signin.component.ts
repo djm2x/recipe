@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../shared/api.service';
 import * as jwt_decode from 'jwt-decode';
@@ -12,10 +12,10 @@ import { SessionService } from '../shared/session.service';
 })
 export class SigninComponent implements OnInit {
 
-  public myForm: FormGroup;
+  public myForm: UntypedFormGroup;
   model: LoginDto = new LoginDto();
   hide = true;
-  constructor(private api: ApiService, private fb: FormBuilder
+  constructor(private api: ApiService, private fb: UntypedFormBuilder
     , public router: Router, private session: SessionService) { }
 
   ngOnInit() {
@@ -39,7 +39,7 @@ export class SigninComponent implements OnInit {
   //   });
   // }
 
-  submit(o: FormGroup) {
+  submit(o: UntypedFormGroup) {
     if (!o.valid) {
       return;
     }

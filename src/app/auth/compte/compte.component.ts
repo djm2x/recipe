@@ -1,5 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Resolve, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import * as moment from 'moment';
@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 })
 export class CompteComponent implements OnInit {
   o: User;
-  public chefForm: FormGroup;
+  public chefForm: UntypedFormGroup;
   // imgUser = '../assets/user.png';
   state = '';
   constructor(private route: ActivatedRoute, private service: ApiService, public router: Router

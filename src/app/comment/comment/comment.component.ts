@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { SessionService } from '../../auth/shared/session.service';
 import { CommentService } from '../comment.service';
 import { Comment } from '../../model';
@@ -18,14 +18,14 @@ const DELETE = 'delete';
 })
 export class CommentComponent implements OnInit {
   @Input() idRecette: String;
-  myForm: FormGroup;
+  myForm: UntypedFormGroup;
   comments: Comment[];
   API_URL = environment.hubUrl;
   isReadonly = true;
   o: Comment = new Comment();
   commentSocket = io.connect(this.API_URL + HUB);
 
-  constructor(private fb: FormBuilder, private service: CommentService, public session: SessionService) { }
+  constructor(private fb: UntypedFormBuilder, private service: CommentService, public session: SessionService) { }
 
   ngOnInit() {
     this.getComments();
@@ -66,7 +66,7 @@ export class CommentComponent implements OnInit {
     return this.session.userID() === idUser;
   }
 
-  submit(o: FormGroup) {
+  submit(o: UntypedFormGroup) {
     this.service.post(o.value).subscribe(
       responce => {
         console.log(responce);

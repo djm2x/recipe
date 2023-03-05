@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TableSharedComponent } from '../table-shared/table-shared.component';
 import { IssamService } from './issam.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { Bins } from './model';
 
 @Component({
@@ -12,7 +12,7 @@ import { Bins } from './model';
 export class IssamComponent implements OnInit {
 
   // type_navire_list: string[];
-  myForm: FormGroup;
+  myForm: UntypedFormGroup;
   o: Bins = new Bins();
   columnDefs = [
     // { columnDef: '_id', headName: '_id' },
@@ -30,7 +30,7 @@ export class IssamComponent implements OnInit {
   //
   isEdit = false;
   //
-  constructor(private fb: FormBuilder, public service: IssamService) { }
+  constructor(private fb: UntypedFormBuilder, public service: IssamService) { }
 
   ngOnInit() {
     this.createForm();
@@ -56,7 +56,7 @@ export class IssamComponent implements OnInit {
     });
   }
 
-  submit(o: FormGroup) {
+  submit(o: UntypedFormGroup) {
     console.log('submit = ', o.value);
     const obj = o.value as Bins;
     if (!this.isEdit) {

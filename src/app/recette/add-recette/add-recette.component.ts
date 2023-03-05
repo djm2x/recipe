@@ -1,6 +1,6 @@
 import { RecetteService } from './../shared/recette.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators, UntypedFormArray } from '@angular/forms';
 import { CategorieService } from '../shared/categorie.service';
 import { SessionService } from '../../auth/shared/session.service';
 import { Router } from '@angular/router';
@@ -14,11 +14,11 @@ import { Categorie, User, Ingredient, EtapPreparation, Recette } from '../../mod
 export class AddRecetteComponent implements OnInit {
   @Input() o: Recette = new Recette();
   @Output() eventToParent = new EventEmitter<any>();
-  myForm: FormGroup;
+  myForm: UntypedFormGroup;
   categories: Categorie[] = [];
   // colorInputFile = '';
   file: File;
-  constructor(private fb: FormBuilder, private service: RecetteService, public router: Router,
+  constructor(private fb: UntypedFormBuilder, private service: RecetteService, public router: Router,
     private categorieService: CategorieService, private session: SessionService) { }
 
   ngOnInit() {
@@ -58,8 +58,8 @@ export class AddRecetteComponent implements OnInit {
       note: 0,
       imgUrl: [null, /*[Validators.required]*/],
       videoUrl: [this.o.videoUrl],
-      ingredients: this.fb.array(this.o.ingredients.map(i => this.fb.group(i)) as FormGroup[]),
-      etapPreparations: this.fb.array(this.o.etapPreparations.map(i => this.fb.group(i)) as FormGroup[]),
+      ingredients: this.fb.array(this.o.ingredients.map(i => this.fb.group(i)) as UntypedFormGroup[]),
+      etapPreparations: this.fb.array(this.o.etapPreparations.map(i => this.fb.group(i)) as UntypedFormGroup[]),
     });
   }
 
@@ -85,7 +85,7 @@ export class AddRecetteComponent implements OnInit {
     }
     return formData;
   }
-  submit(o: FormGroup) {
+  submit(o: UntypedFormGroup) {
     const obj = o.value as User;
     console.log(obj);
     const formData = this.checkImageIfExiste(obj);
@@ -114,12 +114,12 @@ export class AddRecetteComponent implements OnInit {
     img.src = '../../../assets/uploadIMG.png';
   }
 
-  get getIngredients(): FormArray {
-    return this.myForm.get('ingredients') as FormArray;
+  get getIngredients(): UntypedFormArray {
+    return this.myForm.get('ingredients') as UntypedFormArray;
   }
 
-  get getPreparations(): FormArray {
-    return this.myForm.get('etapPreparations') as FormArray;
+  get getPreparations(): UntypedFormArray {
+    return this.myForm.get('etapPreparations') as UntypedFormArray;
   }
 
   addIngredients() {

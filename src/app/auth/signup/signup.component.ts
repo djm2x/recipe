@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../shared/api.service';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as jwt_decode from 'jwt-decode';
 import * as moment from 'moment';
@@ -16,13 +16,13 @@ import { SessionService } from '../shared/session.service';
 export class SignupComponent implements OnInit {
   @Input() o: User = new User();
   @Output() eventToParent = new EventEmitter<any>();
-  public myForm: FormGroup;
+  public myForm: UntypedFormGroup;
   hide = true;
 
   file: File = null;
   imgUrl: string;
   colorInputFile = '';
-  constructor(private service: ApiService, private fb: FormBuilder, private router: Router) { }
+  constructor(private service: ApiService, private fb: UntypedFormBuilder, private router: Router) { }
 
   ngOnInit() {
     // console.log(this.o);
@@ -86,7 +86,7 @@ export class SignupComponent implements OnInit {
   get apropos() { return this.myForm.get('apropos'); }
   // get imgUrl() { return this.myForm.get('imgUrl'); }
 
-  submit(o: FormGroup) {
+  submit(o: UntypedFormGroup) {
     this.passwordConfirmation();
 
     if (!o.valid) {

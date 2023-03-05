@@ -17,28 +17,25 @@ import { ListRecetteSharedComponent } from './list-recette-shared/list-recette-s
 import { UtilsModule } from '../utils/utils.module';
 
 @NgModule({
-  declarations: [
-    RecetteComponent,
-    AddRecetteComponent,
-    ListRecetteComponent,
-    DetailRecetteComponent,
-    EditRecetteComponent,
-    AddComponent,
-    CarnetComponent,
-    DeleteRecetteComponent,
-    ListRecetteSharedComponent,
-  ],
-  imports: [
-    CommonModule,
-    RecetteRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
-    CommentModule,
-    UtilsModule,
-    MatModule,
-  ],
-  entryComponents: [
-    DeleteRecetteComponent,
-  ],
+    declarations: [
+        RecetteComponent,
+        AddRecetteComponent,
+        ListRecetteComponent,
+        DetailRecetteComponent,
+        EditRecetteComponent,
+        AddComponent,
+        CarnetComponent,
+        DeleteRecetteComponent,
+        ListRecetteSharedComponent,
+    ],
+    imports: [
+        CommonModule,
+        RecetteRoutingModule,
+        ReactiveFormsModule,
+        FormsModule,
+        CommentModule,
+        UtilsModule,
+        MatModule,
+    ]
 })
 export class RecetteModule { }
