@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.themeForBtnNav('default-theme');
+
+    console.warn('AppComponent')
   }
 
   toggleSideNave(eventFromNavBar) {
