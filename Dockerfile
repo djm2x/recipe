@@ -10,8 +10,8 @@ RUN date
 COPY package.json .
 COPY package-lock.json .
 # Copy the source code to the /app directory
-RUN npm ci --force
-# RUN npm i --force
+# RUN npm ci --force
+RUN npm i --force
 
 # RUN date
 # RUN ./node_modules/.bin/ngcc --properties es2015
@@ -20,7 +20,7 @@ RUN date
 # Copy the source code to the /app directory
 COPY . .
 # Build the application
-# RUN npm run prod --  --output-path=dist --configuration=$CONFIGURATION 
+# RUN npm run prod --  --output-path=dist --configuration=$CONFIGURATION
 RUN npm run zip
 
 RUN date
