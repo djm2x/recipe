@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { CommentService } from '../comment.service';
-import * as io from 'socket.io-client';
 
 const HUB = 'comments';
 const COUNT = 'count';
@@ -17,7 +16,7 @@ export class CountCommentComponent implements OnInit {
   countComment = 0;
   styleBtn = ''; //  btn-warning
   // hub
-  commentSocket = io.connect(HUB_URL + HUB);
+  // commentSocket = io.connect(HUB_URL + HUB);
 
   constructor(public service: CommentService) { }
 
@@ -43,10 +42,10 @@ export class CountCommentComponent implements OnInit {
     }
   }
   socket() {
-    this.commentSocket.on(COUNT, (r) => {
-      if (this.idRecette === r.idRecette) {
-        this.countComment += r.note;
-      }
-    });
+    // this.commentSocket.on(COUNT, (r) => {
+    //   if (this.idRecette === r.idRecette) {
+    //     this.countComment += r.note;
+    //   }
+    // });
   }
 }

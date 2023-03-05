@@ -18,7 +18,6 @@ import { UtilsModule } from './utils/utils.module';
 import { MyGuard } from './my.guard';
 import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { FooterComponent } from './home/footer/footer.component';
-import { IssamComponent } from './home/issam/issam.component';
 import { TableSharedComponent } from './home/table-shared/table-shared.component';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
@@ -32,11 +31,10 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
     AboutComponent,
     SidebarComponent,
     FooterComponent,
-    IssamComponent,
     TableSharedComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule, //.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,

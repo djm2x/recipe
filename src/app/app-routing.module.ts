@@ -4,7 +4,6 @@ import { PageNotFoundComponent } from './page-not-found.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './home/about/about.component';
 import { AppPreloadingStrategy } from './preloader-module.service';
-import { IssamComponent } from './home/issam/issam.component';
 
 
 
@@ -13,7 +12,6 @@ export const AppRoutes: Routes = [
   { path: '', redirectTo: 'recette', pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'issam', component: IssamComponent },
 
   { path: 'recette', loadChildren: () => import('./recette/recette.module').then(m => m.RecetteModule), data: { preload: true, delay: false } },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule), data: { preload: true, delay: true } },

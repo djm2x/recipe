@@ -1,16 +1,10 @@
+import { UowService } from './../../shared/uow.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { SessionService } from '../../auth/shared/session.service';
 import { CommentService } from '../comment.service';
 import { Comment } from '../../model';
 import { environment } from '../../../environments/environment';
-import * as io from 'socket.io-client';
-
-const HUB = 'comments';
-const ADD = 'add';
-const EDIT = 'edit';
-const DELETE = 'delete';
-
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
@@ -23,14 +17,44 @@ export class CommentComponent implements OnInit {
   API_URL = environment.hubUrl;
   isReadonly = true;
   o: Comment = new Comment();
-  commentSocket = io.connect(this.API_URL + HUB);
 
-  constructor(private fb: UntypedFormBuilder, private service: CommentService, public session: SessionService) { }
+  constructor(private fb: UntypedFormBuilder, private service: CommentService
+    , public session: SessionService, private uow: UowService) { }
 
   ngOnInit() {
     this.getComments();
     this.createForm();
-    this.socket();
+    // this.socket();
+  }
+
+  socket() {
+    //
+    // this.commentSocket.on(ADD, (r) => {
+    //   if (this.idRecette === r.idRecette) {
+    //     this.comments.push(r.comment);
+    //   }
+    //   // this.comments.push(r);
+    //   // this.createForm();
+    // });
+    // //
+    // this.commentSocket.on(EDIT, r => {
+    //   if (this.idRecette === r.idRecette) {
+    //     let i = 0;
+    //     i = this.comments.findIndex(c => c._id === r.comment._id);
+    //     this.comments[i] = r.comment;
+    //     this.resetForm();
+    //   }
+    // });
+    // //
+    // this.commentSocket.on(DELETE, r => {
+    //   if (this.idRecette === r.idRecette) {
+    //     let i = 0;
+    //     i = this.comments.findIndex(c => c._id === r.idComment);
+    //     this.comments.splice(i, 1);
+    //     // this.resetForm();
+    //     // this.comments.map( o => o._id !== id).;
+    //   }
+    // });
   }
 
   getComments(): void {
@@ -98,35 +122,5 @@ export class CommentComponent implements OnInit {
         responce => console.log('responce = ' + responce),
         error => console.log('error = ' + error.status)
       );
-  }
-
-  socket() {
-    //
-    this.commentSocket.on(ADD, (r) => {
-      if (this.idRecette === r.idRecette) {
-        this.comments.push(r.comment);
-      }
-      // this.comments.push(r);
-      // this.createForm();
-    });
-    //
-    this.commentSocket.on(EDIT, r => {
-      if (this.idRecette === r.idRecette) {
-        let i = 0;
-        i = this.comments.findIndex(c => c._id === r.comment._id);
-        this.comments[i] = r.comment;
-        this.resetForm();
-      }
-    });
-    //
-    this.commentSocket.on(DELETE, r => {
-      if (this.idRecette === r.idRecette) {
-        let i = 0;
-        i = this.comments.findIndex(c => c._id === r.idComment);
-        this.comments.splice(i, 1);
-        // this.resetForm();
-        // this.comments.map( o => o._id !== id).;
-      }
-    });
   }
 }

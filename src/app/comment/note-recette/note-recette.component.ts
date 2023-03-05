@@ -2,13 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NoteService } from './note.service';
 import { SessionService } from '../../auth/shared/session.service';
 import { NoteRecette } from '../../model';
-import * as io from 'socket.io-client';
-import { environment } from '../../../environments/environment';
+import { UowService } from '../../shared/uow.service';
 
-const HUB = 'noteRecette';
-const ADD = 'add';
-const DELETE = 'delete';
-const HUB_URL = environment.hubUrl;
 @Component({
   selector: 'app-note-recette',
   templateUrl: './note-recette.component.html',
@@ -20,9 +15,8 @@ export class NoteRecetteComponent implements OnInit {
   liked = false;
   totalLikeRecette = 0;
   styleBtn = '';
-  commentSocket = io.connect(HUB_URL + HUB);
 
-  constructor(public session: SessionService, public service: NoteService) {
+  constructor(public session: SessionService, public service: NoteService, private uow: UowService) {
     this.idUser = session.userID();
   }
 
@@ -96,22 +90,26 @@ export class NoteRecetteComponent implements OnInit {
   }
 
   socket() {
-    this.commentSocket.on(ADD, (r: NoteRecette) => {
-      const isThis = r._id.idRecette === this.idRecette && r._id.idUser === this.idUser;
-      if (isThis) {
-        this.totalLikeRecette += 1;
-        this.styleBtn = 'warn';
-        this.liked = true;
-      }
-    });
+    this.uow.realTimeHub.commentSubject.subscribe(r => {
+      if (r.action === 'add') {
+        const isThis = r.payload._id.idRecette === this.idRecette && r.payload._id.idUser === this.idUser;
+        if (isThis) {
+          this.totalLikeRecette += 1;
+          this.styleBtn = 'warn';
+          this.liked = true;
+        }
 
-    this.commentSocket.on(DELETE, (r: NoteRecette) => {
-      const isThis = r._id.idRecette === this.idRecette && r._id.idUser === this.idUser;
+        return;
+      }
+
+      if (r.action === 'delete') {
+        const isThis = r.payload._id.idRecette === this.idRecette && r.payload._id.idUser === this.idUser;
       if (isThis) {
         this.totalLikeRecette -= 1;
         this.styleBtn = '';
         this.liked = false;
       }
-    });
+      }
+    })
   }
 }
