@@ -26,8 +26,8 @@ export class RealTimeHubService {
 
 
   public createConnection() {
-    this.noteRecetteSocket = io.connect(HUB_URL + 'noteRecette');
-    this.commentSocket = io.connect(HUB_URL + 'comments');
+    this.noteRecetteSocket = io.connect(environment.hubUrl + 'noteRecette');
+    this.commentSocket = io.connect(environment.hubUrl + 'comments');
     // this.hubConnection = new HubConnectionBuilder()
     //   .withUrl(environment.url + '/ChatHub', { accessTokenFactory: () => this.session.token } as IHttpConnectionOptions)
     //   .withAutomaticReconnect([0, 2000, 10000, 30000, null])

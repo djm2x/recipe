@@ -1,3 +1,4 @@
+import { UowService } from './shared/uow.service';
 import { Component, OnInit, HostBinding, ChangeDetectorRef, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { OverlayContainer } from '@angular/cdk/overlay';
 
@@ -12,12 +13,12 @@ export class AppComponent implements OnInit {
   @HostBinding('class.dark-theme') darkTheme = false;
   @ViewChild('div') divHTML: ElementRef;
   img = '../../../assets/intro.jpg';
-  constructor(private overlayContainer: OverlayContainer) { }
+  constructor(private overlayContainer: OverlayContainer, private uow: UowService) { }
 
   ngOnInit(): void {
     this.themeForBtnNav('default-theme');
 
-    console.warn('AppComponent')
+    this.uow.realTimeHub.createConnection()//.startConnection()
   }
 
   toggleSideNave(eventFromNavBar) {

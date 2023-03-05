@@ -46,11 +46,14 @@
           {{o.tempsRepos}}&nbsp;<mat-icon matSuffix>timer</mat-icon>
         </mat-chip>
         <span [ngSwitch]="o.cout">
-          <mat-chip matTooltip="Coût">
-            <div *ngSwitchCase="1">Pas cher</div>
-            <div *ngSwitchCase="2">Abordable</div>
-            <div *ngSwitchCase="3">Assez cher</div>
-            &nbsp;<mat-icon matSuffix>attach_money</mat-icon>
+          <mat-chip matTooltip="Coût" >
+            <div class="d-flex">
+
+              <div *ngSwitchCase="1">Pas cher</div>
+              <div *ngSwitchCase="2">Abordable</div>
+              <div *ngSwitchCase="3">Assez cher</div>
+              &nbsp;<mat-icon matSuffix>attach_money</mat-icon>
+            </div>
           </mat-chip>
         </span>
         <span [ngSwitch]="o.difficulte">
